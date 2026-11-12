@@ -1,0 +1,677 @@
+{
+  "31": {
+    "inputs": {
+      "image": "5ec2a7a0-7e5e-4c5f-815e-457c532dcbf9.jpg"
+    },
+    "class_type": "LoadImage",
+    "_meta": {
+      "title": "Load First Frame"
+    }
+  },
+  "39": {
+    "inputs": {
+      "image": "example.png"
+    },
+    "class_type": "LoadImage",
+    "_meta": {
+      "title": "Load Last Frame"
+    }
+  },
+  "68": {
+    "inputs": {
+      "filename_prefix": "video/ltx2.5_flf2v",
+      "format": "auto",
+      "codec": "auto",
+      "video-preview": "",
+      "video": [
+        "272",
+        0
+      ]
+    },
+    "class_type": "SaveVideo",
+    "_meta": {
+      "title": "保存视频"
+    }
+  },
+  "259": {
+    "inputs": {
+      "video_latent": [
+        "300",
+        0
+      ],
+      "audio_latent": [
+        "266",
+        0
+      ]
+    },
+    "class_type": "LTXVConcatAVLatent",
+    "_meta": {
+      "title": "LTXVConcatAVLatent"
+    }
+  },
+  "260": {
+    "inputs": {
+      "tile_size": 512,
+      "overlap": 64,
+      "temporal_size": 64,
+      "temporal_overlap": 16,
+      "samples": [
+        "267",
+        2
+      ],
+      "vae": [
+        "286",
+        0
+      ]
+    },
+    "class_type": "VAEDecodeTiled",
+    "_meta": {
+      "title": "VAE解码（分块）"
+    }
+  },
+  "261": {
+    "inputs": {
+      "samples": [
+        "262",
+        1
+      ],
+      "audio_vae": [
+        "287",
+        0
+      ]
+    },
+    "class_type": "LTXVAudioVAEDecode",
+    "_meta": {
+      "title": "LTXV音频VAE解码"
+    }
+  },
+  "262": {
+    "inputs": {
+      "av_latent": [
+        "269",
+        1
+      ]
+    },
+    "class_type": "LTXVSeparateAVLatent",
+    "_meta": {
+      "title": "LTXV分离音视频潜空间"
+    }
+  },
+  "263": {
+    "inputs": {
+      "frame_idx": 0,
+      "strength": 0.7,
+      "positive": [
+        "270",
+        0
+      ],
+      "negative": [
+        "270",
+        1
+      ],
+      "vae": [
+        "286",
+        0
+      ],
+      "latent": [
+        "268",
+        0
+      ],
+      "image": [
+        "280",
+        0
+      ]
+    },
+    "class_type": "LTXVAddGuide",
+    "_meta": {
+      "title": "LTXV添加指导"
+    }
+  },
+  "264": {
+    "inputs": {
+      "sigmas": "1.0, 0.99375, 0.9875, 0.98125, 0.975, 0.909375, 0.725, 0.421875, 0.0"
+    },
+    "class_type": "ManualSigmas",
+    "_meta": {
+      "title": "自定义Sigmas"
+    }
+  },
+  "265": {
+    "inputs": {
+      "frame_idx": -1,
+      "strength": 0.7,
+      "positive": [
+        "263",
+        0
+      ],
+      "negative": [
+        "263",
+        1
+      ],
+      "vae": [
+        "286",
+        0
+      ],
+      "latent": [
+        "263",
+        2
+      ],
+      "image": [
+        "279",
+        0
+      ]
+    },
+    "class_type": "LTXVAddGuide",
+    "_meta": {
+      "title": "LTXV添加指导"
+    }
+  },
+  "266": {
+    "inputs": {
+      "frames_number": [
+        "295",
+        1
+      ],
+      "frame_rate": [
+        "296",
+        0
+      ],
+      "batch_size": 1,
+      "audio_vae": [
+        "287",
+        0
+      ]
+    },
+    "class_type": "LTXVEmptyLatentAudio",
+    "_meta": {
+      "title": "LTXV 空音频潜空间"
+    }
+  },
+  "267": {
+    "inputs": {
+      "positive": [
+        "304",
+        0
+      ],
+      "negative": [
+        "270",
+        1
+      ],
+      "latent": [
+        "262",
+        0
+      ]
+    },
+    "class_type": "LTXVCropGuides",
+    "_meta": {
+      "title": "LTXV裁剪指导"
+    }
+  },
+  "268": {
+    "inputs": {
+      "width": [
+        "291",
+        0
+      ],
+      "height": [
+        "292",
+        0
+      ],
+      "length": [
+        "295",
+        1
+      ],
+      "batch_size": 1
+    },
+    "class_type": "EmptyLTXVLatentVideo",
+    "_meta": {
+      "title": "空Latent视频（LTXV）"
+    }
+  },
+  "269": {
+    "inputs": {
+      "noise": [
+        "274",
+        0
+      ],
+      "guider": [
+        "273",
+        0
+      ],
+      "sampler": [
+        "271",
+        0
+      ],
+      "sigmas": [
+        "264",
+        0
+      ],
+      "latent_image": [
+        "259",
+        0
+      ]
+    },
+    "class_type": "SamplerCustomAdvanced",
+    "_meta": {
+      "title": "自定义采样器（高级）"
+    }
+  },
+  "270": {
+    "inputs": {
+      "frame_rate": [
+        "293",
+        0
+      ],
+      "positive": [
+        "276",
+        0
+      ],
+      "negative": [
+        "275",
+        0
+      ]
+    },
+    "class_type": "LTXVConditioning",
+    "_meta": {
+      "title": "LTXV条件"
+    }
+  },
+  "271": {
+    "inputs": {
+      "eta": 0,
+      "s_noise": 1
+    },
+    "class_type": "SamplerEulerAncestral",
+    "_meta": {
+      "title": "EulerAncestral采样器"
+    }
+  },
+  "272": {
+    "inputs": {
+      "fps": [
+        "293",
+        0
+      ],
+      "bit_depth": 8,
+      "images": [
+        "260",
+        0
+      ],
+      "audio": [
+        "261",
+        0
+      ]
+    },
+    "class_type": "CreateVideo",
+    "_meta": {
+      "title": "创建视频"
+    }
+  },
+  "273": {
+    "inputs": {
+      "video_cfg": 1,
+      "audio_cfg": 1,
+      "model": [
+        "285",
+        0
+      ],
+      "positive": [
+        "304",
+        0
+      ],
+      "negative": [
+        "270",
+        1
+      ]
+    },
+    "class_type": "LTXVDualCFGGuider",
+    "_meta": {
+      "title": "LTXV Dual CFG Guider"
+    }
+  },
+  "274": {
+    "inputs": {
+      "noise_seed": 959817284831071
+    },
+    "class_type": "RandomNoise",
+    "_meta": {
+      "title": "随机噪波"
+    }
+  },
+  "275": {
+    "inputs": {
+      "text": "blurry, out of focus, overexposed, underexposed, low contrast, washed out colors, excessive noise, grainy texture, poor lighting, flickering, motion blur, distorted proportions, unnatural skin tones, deformed facial features, asymmetrical face, missing facial features, extra limbs, disfigured hands, wrong hand count, artifacts around text, unreadable text on shirt or hat, incorrect lettering on cap (“PNTR”), incorrect t-shirt slogan (“JUST DO IT”), missing microphone, misplaced microphone, inconsistent perspective, camera shake, incorrect depth of field, background too sharp, background clutter, distracting reflections, harsh shadows, inconsistent lighting direction, color banding, cartoonish rendering, 3D CGI look, unrealistic materials, uncanny valley effect, incorrect ethnicity, wrong gender, exaggerated expressions, smiling, laughing, exaggerated sadness, wrong gaze direction, eyes looking at camera, mismatched lip sync, silent or muted audio, distorted voice, robotic voice, echo, background noise, off-sync audio, missing sniff sounds, incorrect dialogue, added dialogue, repetitive speech, jittery movement, awkward pauses, incorrect timing, unnatural transitions, inconsistent framing, tilted camera, missing door or shelves, missing shallow depth of field, flat lighting, inconsistent tone, cinematic oversaturation, stylized filters, or AI artifacts.",
+      "clip": [
+        "298",
+        0
+      ]
+    },
+    "class_type": "CLIPTextEncode",
+    "_meta": {
+      "title": "CLIP文本编码"
+    }
+  },
+  "276": {
+    "inputs": {
+      "text": [
+        "297",
+        0
+      ],
+      "clip": [
+        "298",
+        0
+      ]
+    },
+    "class_type": "CLIPTextEncode",
+    "_meta": {
+      "title": "CLIP文本编码"
+    }
+  },
+  "279": {
+    "inputs": {
+      "img_compression": 18,
+      "image": [
+        "307",
+        0
+      ]
+    },
+    "class_type": "LTXVPreprocess",
+    "_meta": {
+      "title": "LTXV预处理"
+    }
+  },
+  "280": {
+    "inputs": {
+      "img_compression": 18,
+      "image": [
+        "306",
+        0
+      ]
+    },
+    "class_type": "LTXVPreprocess",
+    "_meta": {
+      "title": "LTXV预处理"
+    }
+  },
+  "285": {
+    "inputs": {
+      "unet_name": "ltx-2.5-22b-distilled-transformer-w4a8_convrot.safetensors",
+      "weight_dtype": "default"
+    },
+    "class_type": "UNETLoader",
+    "_meta": {
+      "title": "UNet加载器"
+    }
+  },
+  "286": {
+    "inputs": {
+      "vae_name": "ltx-2.5-video-vae-conv-bf16.safetensors"
+    },
+    "class_type": "VAELoader",
+    "_meta": {
+      "title": "加载VAE"
+    }
+  },
+  "287": {
+    "inputs": {
+      "vae_name": "ltx-2.5-audio-vae-bf16.safetensors"
+    },
+    "class_type": "VAELoader",
+    "_meta": {
+      "title": "加载VAE"
+    }
+  },
+  "291": {
+    "inputs": {
+      "value": 320
+    },
+    "class_type": "PrimitiveInt",
+    "_meta": {
+      "title": "Width"
+    }
+  },
+  "292": {
+    "inputs": {
+      "value": 320
+    },
+    "class_type": "PrimitiveInt",
+    "_meta": {
+      "title": "height"
+    }
+  },
+  "293": {
+    "inputs": {
+      "expression": "a",
+      "values.a": [
+        "296",
+        0
+      ]
+    },
+    "class_type": "ComfyMathExpression",
+    "_meta": {
+      "title": "数学表达式"
+    }
+  },
+  "294": {
+    "inputs": {
+      "value": 1
+    },
+    "class_type": "PrimitiveInt",
+    "_meta": {
+      "title": "Duration"
+    }
+  },
+  "295": {
+    "inputs": {
+      "expression": "a * b + 1",
+      "values.a": [
+        "294",
+        0
+      ],
+      "values.b": [
+        "296",
+        0
+      ]
+    },
+    "class_type": "ComfyMathExpression",
+    "_meta": {
+      "title": "数学表达式"
+    }
+  },
+  "296": {
+    "inputs": {
+      "value": 24
+    },
+    "class_type": "PrimitiveInt",
+    "_meta": {
+      "title": "Frame Rate(int)"
+    }
+  },
+  "297": {
+    "inputs": {
+      "value": "吉卜力风格，一只蓝色的机器猫（哆啦A梦），笑嘻嘻的朝镜头前跑过来，口中大喊着：“生日快乐哦”"
+    },
+    "class_type": "PrimitiveStringMultiline",
+    "_meta": {
+      "title": "Prompt"
+    }
+  },
+  "298": {
+    "inputs": {
+      "clip_name": "gemma4-12b-with-proj-ltx-2.5-w4a8_convrot.safetensors",
+      "type": "ltxv",
+      "device": "cuda:1"
+    },
+    "class_type": "CLIPLoaderMultiGPU",
+    "_meta": {
+      "title": "CLIPLoaderMultiGPU"
+    }
+  },
+  "299": {
+    "inputs": {
+      "value": 0
+    },
+    "class_type": "INTConstant",
+    "_meta": {
+      "title": "inputImgCount"
+    }
+  },
+  "300": {
+    "inputs": {
+      "Default_Input": [
+        "301",
+        2
+      ],
+      "true_input": [
+        "265",
+        2
+      ],
+      "false_input": [
+        "303",
+        0
+      ]
+    },
+    "class_type": "OverrideSwitch",
+    "_meta": {
+      "title": "Override Switch-latent"
+    }
+  },
+  "301": {
+    "inputs": {
+      "expression": "a>1",
+      "values.a": [
+        "299",
+        0
+      ]
+    },
+    "class_type": "ComfyMathExpression",
+    "_meta": {
+      "title": "数学表达式"
+    }
+  },
+  "302": {
+    "inputs": {
+      "expression": "a>0",
+      "values.a": [
+        "299",
+        0
+      ]
+    },
+    "class_type": "ComfyMathExpression",
+    "_meta": {
+      "title": "数学表达式"
+    }
+  },
+  "303": {
+    "inputs": {
+      "Default_Input": [
+        "302",
+        2
+      ],
+      "true_input": [
+        "263",
+        2
+      ],
+      "false_input": [
+        "268",
+        0
+      ]
+    },
+    "class_type": "OverrideSwitch",
+    "_meta": {
+      "title": "Override Switch"
+    }
+  },
+  "304": {
+    "inputs": {
+      "Default_Input": [
+        "301",
+        2
+      ],
+      "true_input": [
+        "265",
+        0
+      ],
+      "false_input": [
+        "305",
+        0
+      ]
+    },
+    "class_type": "OverrideSwitch",
+    "_meta": {
+      "title": "Override Switch-clip"
+    }
+  },
+  "305": {
+    "inputs": {
+      "Default_Input": [
+        "302",
+        2
+      ],
+      "true_input": [
+        "263",
+        0
+      ],
+      "false_input": [
+        "270",
+        0
+      ]
+    },
+    "class_type": "OverrideSwitch",
+    "_meta": {
+      "title": "Override Switch"
+    }
+  },
+  "306": {
+    "inputs": {
+      "width": [
+        "291",
+        0
+      ],
+      "height": [
+        "292",
+        0
+      ],
+      "upscale_method": "nearest-exact",
+      "keep_proportion": "stretch",
+      "pad_color": "0, 0, 0",
+      "crop_position": "center",
+      "divisible_by": 2,
+      "device": "cpu",
+      "image": [
+        "31",
+        0
+      ]
+    },
+    "class_type": "ImageResizeKJv2",
+    "_meta": {
+      "title": "Resize Image v2"
+    }
+  },
+  "307": {
+    "inputs": {
+      "width": [
+        "291",
+        0
+      ],
+      "height": [
+        "292",
+        0
+      ],
+      "upscale_method": "nearest-exact",
+      "keep_proportion": "stretch",
+      "pad_color": "0, 0, 0",
+      "crop_position": "center",
+      "divisible_by": 2,
+      "device": "cpu",
+      "image": [
+        "39",
+        0
+      ]
+    },
+    "class_type": "ImageResizeKJv2",
+    "_meta": {
+      "title": "Resize Image v2"
+    }
+  }
+}

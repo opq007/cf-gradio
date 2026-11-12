@@ -1,0 +1,91 @@
+{
+  "version": 1,
+  "kind": "img2video",
+  "prompt_node": "297.value",
+  "image_node": "31.image",
+  "parameters": {
+    "size": {
+      "type": "size",
+      "description": "Output size as WIDTHxHEIGHT.",
+      "maps": [
+        {
+          "target": "291.value",
+          "part": "width"
+        },
+        {
+          "target": "292.value",
+          "part": "height"
+        }
+      ]
+    },
+    "width": {
+      "type": "int",
+      "minimum": 1,
+      "description": "Output width.",
+      "maps": [
+        {
+          "target": "291.value"
+        }
+      ]
+    },
+    "height": {
+      "type": "int",
+      "minimum": 1,
+      "description": "Output height.",
+      "maps": [
+        {
+          "target": "292.value"
+        }
+      ]
+    },
+    "duration": {
+      "type": "int",
+      "minimum": 0,
+      "description": "Video duration in seconds. Mapped to the duration primitive; frame length is computed by the workflow.",
+      "maps": [
+        {
+          "target": "294.value"
+        }
+      ]
+    },
+    "fps": {
+      "type": "int",
+      "minimum": 1,
+      "description": "Output video FPS. Does not change the duration-to-length formula.",
+      "maps": [
+        {
+          "target": "296.value"
+        }
+      ]
+    },
+    "seed": {
+      "type": "int",
+      "description": "Random seed. Omit or pass -1 to randomize each job.",
+      "maps": [
+        {
+          "target": "274.noise_seed"
+        }
+      ]
+    },
+    "image2": {
+      "type": "image",
+      "description": "Second input image / last frame. Filled automatically from extra video reference images.",
+      "maps": [
+        {
+          "target": "39.image"
+        }
+      ]
+    },
+    "inputImgCount": {
+      "type": "int",
+      "default": 0,
+      "minimum": 0,
+      "description": "Number of input images. Auto-assigned from the actual reference image count; 0 is text-to-video.",
+      "maps": [
+        {
+          "target": "299.value"
+        }
+      ]
+    }
+  }
+}

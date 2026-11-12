@@ -1,0 +1,91 @@
+{
+  "version": 1,
+  "kind": "img2video",
+  "prompt_node": "133.prompt",
+  "image_node": "114.image",
+  "parameters": {
+    "size": {
+      "type": "size",
+      "description": "Output size as WIDTHxHEIGHT.",
+      "maps": [
+        {
+          "target": "170.value",
+          "part": "width"
+        },
+        {
+          "target": "171.value",
+          "part": "height"
+        }
+      ]
+    },
+    "width": {
+      "type": "int",
+      "minimum": 1,
+      "description": "Output width.",
+      "maps": [
+        {
+          "target": "170.value"
+        }
+      ]
+    },
+    "height": {
+      "type": "int",
+      "minimum": 1,
+      "description": "Output height.",
+      "maps": [
+        {
+          "target": "171.value"
+        }
+      ]
+    },
+    "duration": {
+      "type": "float",
+      "minimum": 0,
+      "description": "Video duration in seconds. Mapped to the duration primitive; frame length is computed by the workflow.",
+      "maps": [
+        {
+          "target": "135.value"
+        }
+      ]
+    },
+    "fps": {
+      "type": "float",
+      "minimum": 1,
+      "description": "Output video FPS. Does not change the duration-to-length formula.",
+      "maps": [
+        {
+          "target": "132.fps"
+        }
+      ]
+    },
+    "seed": {
+      "type": "int",
+      "description": "Random seed. Omit or pass -1 to randomize each job.",
+      "maps": [
+        {
+          "target": "131.noise_seed"
+        }
+      ]
+    },
+    "image2": {
+      "type": "image",
+      "description": "Second input image / last frame. Filled automatically from extra video reference images.",
+      "maps": [
+        {
+          "target": "191.image"
+        }
+      ]
+    },
+    "inputImgCount": {
+      "type": "int",
+      "default": 0,
+      "minimum": 0,
+      "description": "Number of input images. Auto-assigned from the actual reference image count; 0 is text-to-video.",
+      "maps": [
+        {
+          "target": "186.value"
+        }
+      ]
+    }
+  }
+}
